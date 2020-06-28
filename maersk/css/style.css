@@ -1,0 +1,253 @@
+/*
+ * Javascript Sort and Shuffle exercise
+ * coding exercise for mearsk.
+ *
+ * Project started on: Sunday, 28 Jun 2020.
+ * Current version: 1.0.0
+ *
+ * Author:  Yogesh H. Mahale (https://github.com/yogesh-mahale)
+ *
+ * --------------------------------------------------------------------------------
+ */
+/**************************************** CSS Variables * ******************************************/
+:root {
+    --dark-black: #000000;
+    --black: #333333;
+    --white: #FFFFFF;
+    --gray: #EFEFEF;
+    --light-blue: #72C3DC;
+    --blue: #2B8EAD;
+    --gray-blue: #6F98A8;
+    --dark-gray: #BFBFBF;
+    --dark-blue: #2F454E;
+}
+
+/**************************************** Global CSS Classes ******************************************/
+body {
+    font-size: 14px;
+    font-family: "Lucida Sans", sans-serif;
+    color: var(--black);
+}
+.bg-light {
+    background-color: var(--gray);
+}
+.bg-white {
+    background-color: var(--white);
+}
+.bg-blue {
+    background-color: var(--blue);
+}
+.bg-light-blue {
+    background-color: var(--light-blue);
+}
+.bg-gray-blue {
+    background-color: var(--gray-blue);
+}
+.bg-dark-blue {
+    background-color: var(--dark-blue);
+}
+.bg-dark-gray {
+    background-color: var(--dark-gray);
+}
+.p-0 {
+    padding: 0 !important;
+}
+.pt-1 {
+    padding-top: 5px !important;
+}
+.p-3 {
+    padding: 10px !important;
+}
+.m-0 {
+    margin: 0;
+}
+.mt-1 {
+    margin-top: 5px !important;
+}
+.text-white {
+    color: var(--white);
+}
+.text-center {
+    text-align: center;
+}
+.btn {
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+.btn-primary {
+    background-color: var(--light-blue);
+    color: var(--white);
+    border-bottom: 4px solid var(--blue);
+    border-style: inset;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.w-100 {width: 100%;}
+
+/**
+* Todo: Make border color dynamic. So it will change dynamically according to number
+ */
+.border-color-light-blue {
+    border-color: var(--light-blue) !important;
+}
+.border-color-gray-blue {
+    border-color: var(--gray-blue) !important;
+}
+.border-color-dark-gray {
+    border-color: var(--dark-gray) !important;
+}
+.border-color-blue {
+    border-color: var(--blue) !important;
+}
+.border-color-dark-blue {
+    border-color: var(--dark-blue) !important;
+}
+
+
+/**************************************** CSS Classes ******************************************/
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 5px;
+}
+
+/********** Header ******/
+.header {
+    font-size: 18px;
+}
+
+/********** content ******/
+.cards {}
+.cards .card {
+    border-left: 8px solid var(--dark-blue);
+    font-size: 16px;
+    font-weight: bold;
+}
+.author {
+    font-size: 12px;
+    text-align: center;
+}
+
+/********** footer ******/
+
+/**************************************** Mobile first design approch ******************************************/
+
+/** Mobile Phone css (Yog Mobile)
+***********************************************************/
+[class*="col-"] {
+    width: 100%;
+}
+
+/* Visibility */
+.d-none {
+    display: none!important;
+}
+.d-block {
+    display: block!important;
+}
+
+/** Desktop CSS
+************************************************************/
+@media only screen and (min-width: 768px) {
+    .col-md-1 {
+        width: 8.33%;
+    }
+    .col-md-2 {
+        width: 16.66%;
+    }
+    .col-md-3 {
+        width: 25%;
+    }
+    .col-md-4 {
+        width: 33.33%;
+    }
+    .col-md-5 {
+        width: 41.66%;
+    }
+    .col-md-6 {
+        width: 50%;
+    }
+    .col-md-7 {
+        width: 58.33%;
+    }
+    .col-md-8 {
+        width: 66.66%;
+    }
+    .col-md-9 {
+        width: 75%;
+    }
+    .col-md-10 {
+        width: 83.33%;
+    }
+    .col-md-11 {
+        width: 91.66%;
+    }
+    .col-md-12 {
+        width: 100%;
+    }
+
+    /* Visibility */
+    .d-md-block {
+        display: block!important;
+    }
+    .d-md-none {
+        display: none!important;
+    }
+
+    /********** content ******/
+    .cards {}
+    .cards .card {
+        border: 1px solid transparent;
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        /*background-color: var(--light-blue);*/
+        min-height: 150px;
+        text-align: center;
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cards .card .card-text {
+        font-size: 52px;
+    }
+
+}
+
+/** Tables CSS
+************************************************************/
+@media only screen and (min-width: 600px) {
+    .col-sm-1 {width: 8.33%;}
+    .col-sm-2 {width: 16.66%;}
+    .col-sm-3 {width: 25%;}
+    .col-sm-4 {width: 33.33%;}
+    .col-sm-5 {width: 41.66%;}
+    .col-sm-6 {width: 50%;}
+    .col-sm-7 {width: 58.33%;}
+    .col-sm-8 {width: 66.66%;}
+    .col-sm-9 {width: 75%;}
+    .col-sm-10 {width: 83.33%;}
+    .col-sm-11 {width: 91.66%;}
+    .col-sm-12 {width: 100%;}
+}
+
